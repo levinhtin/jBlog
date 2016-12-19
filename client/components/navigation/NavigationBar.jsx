@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 class NavigationBar extends React.Component {
   render() {
-    return(
+    return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
@@ -15,11 +15,14 @@ class NavigationBar extends React.Component {
               <li>
                 <Link to="/signup" className="navbar-brand">Sign up</Link>
               </li>
+              <li>
+                <Link to="/signin" className="navbar-brand">Sign in</Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "email": "admin@jblog.com",
+      "username": "admin",
+      "name": "Administrator"
+    },
+    {
+      "id": 2,
+      "role": "user",
+      "email": "levinhtin@gmail.com",
+      "username": "levinhtin",
+      "name": "Tin Le"
+    },
+    {
+      "role": "user",
+      "email": "hohang@gmail.com",
+      "username": "hohang",
+      "name": "Ho Hang",
+      "id": 3
+    }
+  ]
+}

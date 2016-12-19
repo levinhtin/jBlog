@@ -249,4 +249,4 @@ export default {
   "(GMT+13:00) Fakaofo": "Pacific/Fakaofo",
   "(GMT+13:00) Tongatapu": "Pacific/Tongatapu",
   "(GMT+14:00) Kiritimati": "Pacific/Kiritimati"
-}
+};

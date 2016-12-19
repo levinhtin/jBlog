@@ -1,6 +1,8 @@
 import React from 'react';
 import timezones from '../../data/timezones';
 import map from 'lodash/map';
+import * as userActions from '../../actions/users';
+import {connect} from 'react-redux';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -24,14 +26,14 @@ class SignupForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    
+    this.props.dispatch(userActions.signup(this.state));
   }
 
   render() {
     const options = map(timezones, (val, key) =>
       <option value={val} key={val}>{key}</option>
     )
-    console.log(options);
+    // console.log(options);
     return(
       <form role="form" onSubmit={this.onSubmit}>
         <h1>Join with me</h1>
@@ -72,4 +74,8 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+// SignupPage.propTypes = {
+//   userSignupRequest: React.PropTypes.func.isRequired
+// }
+
+export default connect()(SignupForm);

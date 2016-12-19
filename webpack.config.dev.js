@@ -20,13 +20,13 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: path.join(__dirname, 'client'),
         loaders: ['react-hot', 'babel']
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['', '.js',]
   }
 }
