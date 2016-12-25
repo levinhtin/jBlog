@@ -21,12 +21,22 @@ export default {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        include: path.join(__dirname, 'client'),
+        include: path.join(__dirname, 'client/src'),
         loaders: ['react-hot', 'babel']
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js',]
+    extensions: ['', '.js'],
+    alias: {
+      'base': path.resolve(__dirname, './client/src/'),
+      'components': path.resolve(__dirname, './client/src/components/'),
+      'assets': path.resolve(__dirname, './client/src/assets/'),
+      'global_styles': path.resolve(__dirname, './client/src/assets/styles/'),
+      'constants': path.resolve(__dirname, './client/src/constants'),
+      'actions': path.resolve(__dirname, './client/src/actions'),
+      'utils': path.resolve(__dirname, './client/src/utils'),
+      'reducers': path.resolve(__dirname, './client/src/reducers')
+    }
   }
-}
+};

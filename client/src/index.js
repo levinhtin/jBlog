@@ -11,7 +11,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory} children={routes}/>
+    <Router history={browserHistory} routes={routes}/>
   </Provider>,
   document.getElementById('app')
 );

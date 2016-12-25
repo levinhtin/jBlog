@@ -37,7 +37,7 @@ class SigninForm extends React.Component {
           <input type="password" name="password" value={this.state.password} onChange={this.onChange} className="form-control" />
         </div>
       </form>
-    );
+    )
   }
 }
 

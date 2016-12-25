@@ -3,7 +3,7 @@ import {Route, IndexRoute} from 'react-router';
 
 import App from './components/App';
 import {SignupPage, SigninPage, HomePage} from './pages';
-// import Signup from './pages/Signup';
+
 
 const routes = [
   {
@@ -16,12 +16,12 @@ const routes = [
       {
         path: 'signin',
         component: SigninPage
+      },
+      {
+        path: 'signup',
+        component: SignupPage
       }
     ]
-  },
-  {
-    path: 'signup',
-    component: SignupPage
   }
 ];
 
