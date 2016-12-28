@@ -7,12 +7,14 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev.js';
 
 import users from './routes/users';
+import articles from './routes/articles';
 
 let app = express();
 
 app.use(bodyParser.json());
 
-app.use('/api/users', users)
+app.use('/api/users', users);
+app.use('/api/articles', articles);
 
 const compiler = webpack(webpackConfig);
 
@@ -20,7 +22,7 @@ app.use(express.static(__dirname + '../src'));
 app.use(webpackMiddleware(compiler, {
   hot: true,
   stats: {
-    colors: true,
+    colors: true
   },
   filename: webpackConfig.output.filename,
   publicPath: webpackConfig.output.publicPath,

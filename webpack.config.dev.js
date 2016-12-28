@@ -1,11 +1,18 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default {
-  devtools: 'source-map',
+//Development Mode
+//Be sure to invoke Webpack as env NODE_ENV=production webpack -p when building your production assets.
+const DEBUG = process.env.NODE_ENV !== 'production';
+
+let config = {
+  debug: DEBUG ? true : false,
+  devtool: DEBUG ? 'cheap-module-eval-source-map' : 'hidden-source-map',
   entry: [
     './src/index.jsx',
+    './src/assets/scss/_screen.scss'
   ],
   output: {
     path: path.join(__dirname, '/'),
@@ -16,16 +23,21 @@ export default {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin('style.css', {allChunks: true}),
+    new HtmlWebpackPlugin({
+      template: path.resolve('./server/', 'index.html'),
+      minify: {
+        collapseWhitespace: true
+      }
+    })
   ],
   module: {
     loaders: [
       {
         test: /\.(ico|jpg|jpeg|png|eot|ttf|woff|svg|less)/,
         loader: 'file'
-      },
-      {
+      },{
         test: /\.(scss|css)$/,
-        loaders: ExtractTextPlugin.extract("style", "css?sourceMap&modules&importLoaders=1&localIdentName=[local]!sass?sourceMap")
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap&modules&importLoaders=1&localIdentName=[local]!sass?sourceMap")
       },
       {
         test: /\.(js|jsx)$/,
@@ -39,7 +51,7 @@ export default {
     ]
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.scss', '.js'],
     alias: {
       'base': path.resolve(__dirname, './src/'),
       'components': path.resolve(__dirname, './src/components/'),
@@ -53,3 +65,5 @@ export default {
     }
   }
 };
+
+export default config;
