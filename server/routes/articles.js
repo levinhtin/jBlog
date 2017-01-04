@@ -1,7 +1,8 @@
 import express from 'express';
 
-let bodyParser  =   require("body-parser");
-let mongoOp     =   require("./models/mongo");
+import bodyParser from 'body-parser';
+import mongoOp from '../models/mongo';
+
 let router = express.Router();
 
 router.get('/', (req, res) => {
