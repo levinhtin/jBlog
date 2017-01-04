@@ -6,11 +6,17 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev.js';
 
+import mongoose from 'mongoose';
+mongoose.connect('mongodb://localhost:27017/jblog');
+
 import users from './routes/users';
 import articles from './routes/articles';
 
 let app = express();
 
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
