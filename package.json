@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "linter": "node_modules/.bin/eslint \"./client/src\"",
-    "server": "node_modules/.bin/nodemon --watch server --exec babel-node -- server/index.js --config webpack.config.dev.js --inline --hot --progress --colors",
+    "server": "node_modules/.bin/nodemon --watch server --exec babel-node -- server/index.js --config webpack.conf.babel.js --inline --hot --progress --colors",
+    "build": "cross-env NODE_ENV=production webpack -p --progress --config webpack.conf.babel.js",
     "test": "node_modules/.bin/eslint \"./client/src\"",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.conf.babel.js --inline --hot --progress --colors",
+    "debug": "webpack-dev-server --watch --config webpack.conf.babel.js  --inline --hot --progress --colors"
   },
   "keywords": [],
   "author": "",
@@ -37,15 +39,16 @@
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
-    "node-sass": "^4.1.1",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.10.2",
     "react-hot-loader": "^1.3.0",
-    "sass-loader": "^4.1.1",
+    "sass-loader": "^5.0.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2",
-    "webpack-dev-middleware": "^1.8.3"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-dev-server": "^2.3.0"
   }
 }
